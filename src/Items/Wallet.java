@@ -2,11 +2,12 @@ package Items;
 
 public class Wallet {
 
-    long balance = 0;
-    int[] formattedBalance = new int[5];
+    private long balance = 0;
+    private int[] formattedBalance = new int[5];
 
-    public Wallet(long startingBalance, int[] specialCoinage){
-
+    public Wallet(int[] startingCoinage){
+        this.formattedBalance = startingCoinage;
+        this.balance = this.coinageToRaw(this.formattedBalance);
     }
 
 
@@ -22,7 +23,8 @@ public class Wallet {
 
     }
 
-    private void coinageToRaw(int[] coinage){
-
+    private int coinageToRaw(int[] coinage){
+        int rawValue = 0;
+        return rawValue;
     }
 }

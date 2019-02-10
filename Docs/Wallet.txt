@@ -16,8 +16,8 @@ Wallet
 # balance: long
 # formattedBalance: array[int]
 ---------------------------------
-«constructor»(startingBalance: long, specialCoinage: array[int]): void
+«constructor»(startingCoinage: array[int]): void
 +changeBalance(newBalance: array[int], setTo: boolean): void
 +setCoinage(pp: int, gp: int, ep: int, sp: int, cp: int): void
 -calcCoinage(): void
--coinageToRaw(coinage: array[int]): void
+-coinageToRaw(coinage: array[int]): int
