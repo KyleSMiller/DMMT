@@ -14,13 +14,13 @@ An array stores the number of non-copper coins the wallet contains
 Wallet
 ---------------------------------
 -balance: long
--formattedBalance: array[int]
+-formattedBalance: int[]
 ---------------------------------
 «constructor»(boolean autoGenerate): void
-+changeBalance(newBalance: array[int], setTo: boolean): void
++changeBalance(newBalance: int[], setTo: boolean): void
 +setCoinage(pp: int, gp: int, ep: int, sp: int, cp: int): void
 -generateBalance(): void
 -calcCoinage(): void
--coinageToRaw(coinage: array[int]): int
+-coinageToRaw(coinage: int[]): int
 -getBalance(): long
 -getFormattedBalance(): int[]
