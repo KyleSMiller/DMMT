@@ -20,11 +20,13 @@ Item
 -Description: String
 ---------------------------------
 «constructor»(name: String): void
++setName(newName): void
 +toggleMagical(): void
 +setRarity(rareValue: int): void
 +setStatBlock(statMods: int[]): void
 +setTraits(text: String): void
 +setDescription(text: String): void
++getName(): String
 +isMagical(): boolean
 +getRarity(): String
 +getStatBlockMod(): int[]
