@@ -13,10 +13,12 @@ public class Wallet {
 
 
     public void changeBalance(int[] newBalance, boolean setTo){
+        // if wallet is not auto-generated, this method is used to create an initial balance
         // TODO: change the balance of the wallet
     }
 
     public void setCoinage(int pp, int gp, int ep, int sp, int cp){
+        //
         // TODO: force the formattedBalance to a specific value
     }
 
@@ -25,7 +27,19 @@ public class Wallet {
     }
 
     private void calcCoinage() {
-        // TODO: convert raw balance into formatted array of coins
+        // Convert balance integer into formatted coinage array
+        // EP and PP are ignored when calculating the coinage
+        // This method is only used in auto-generation of wallets
+        long tempBalance = this.balance;
+        for (int i = 0; i <= this.formattedBalance.length; i++){
+            // split the balance at each digit
+            this.formattedBalance[(this.formattedBalance.length - 1) - i] = (int) tempBalance % 10;
+            tempBalance /= 10;
+        }
+        if (tempBalance != 0){
+            // account for GP > 9
+            this.formattedBalance[0] += tempBalance * 10;
+        }
     }
 
     private int coinageToRaw(int[] coinage){
@@ -37,6 +51,14 @@ public class Wallet {
         rawValue += coinage[3] * 10;          // add SP
         rawValue += coinage[4];               // add CP
         return rawValue;
+    }
+
+    public long getBalance(){
+        return this.balance;
+    }
+
+    public int[] getFormattedBalance(){
+        return this.formattedBalance;
     }
 }
 

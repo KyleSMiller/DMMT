@@ -22,3 +22,5 @@ Wallet
 -generateBalance(): void
 -calcCoinage(): void
 -coinageToRaw(coinage: array[int]): int
+-getBalance(): long
+-getFormattedBalance(): int[]
