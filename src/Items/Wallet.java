@@ -14,17 +14,37 @@ public class Wallet {
 
     public void changeBalance(int[] newBalance, boolean setTo){
         // if wallet is not auto-generated, this method is used to create an initial balance
-        // TODO: change the balance of the wallet
+        // change the integer balance of the wallet
+        // newBalance follows [pp, gp, ep, sp, cp] format
+        long intAmount = coinageToRaw(newBalance);
+        if (setTo) {
+            this.balance = intAmount;
+        }
+        else{
+            this.balance += intAmount;
+        }
+        this.calcCoinage();
     }
 
+
     public void setCoinage(int pp, int gp, int ep, int sp, int cp){
-        //
-        // TODO: force the formattedBalance to a specific value
+        // Set the exact coins of the wallet
+        // This is method is only used when a DM manually sets the coins in a wallet
+
+        this.formattedBalance[0] = pp;
+        this.formattedBalance[1] = gp;
+        this.formattedBalance[2] = ep;
+        this.formattedBalance[3] = sp;
+        this.formattedBalance[4] = cp;
+
+        this.balance = this.coinageToRaw(this.formattedBalance);
     }
+
 
     private void generateBalance(){
         // TODO: wealth auto-generation logic
     }
+
 
     private void calcCoinage() {
         // Convert balance integer into formatted coinage array
@@ -42,6 +62,7 @@ public class Wallet {
         }
     }
 
+
     private int coinageToRaw(int[] coinage){
         // Convert the formatted array of coins into an integer
         int rawValue = 0;
@@ -53,9 +74,11 @@ public class Wallet {
         return rawValue;
     }
 
+
     public long getBalance(){
         return this.balance;
     }
+
 
     public int[] getFormattedBalance(){
         return this.formattedBalance;
