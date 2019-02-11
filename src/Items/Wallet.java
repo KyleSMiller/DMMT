@@ -42,7 +42,7 @@ public class Wallet {
 
 
     private void generateBalance(){
-        // TODO: wealth auto-generation logic
+        // TODO: wealth auto-generation logic -- need owner wealth logic before this can be implemented
     }
 
 
