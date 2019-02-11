@@ -1,9 +1,10 @@
 
 Superclass for more specific item types
-Magic, rarity, stat block modifier, traits, and description are handled by this class
+Name, magic, rarity, stat block modifier, traits, and description are handled by this class
+    Name: Plain text name of item
     Magic: true, false
-    Rarity: unique[0], legendary[1], veryRare[2], rare[3], uncommon[4], common[5]
-    StatBlock: (+-)#Strength, (+-)#Dexterity, (+-)#Constitution, (+-)#Intelligence, (+-)#Wisdom, (+-)#Charisma
+    Rarity: unique(0), legendary(1), veryRare(2), rare(3), uncommon(4), common(5)
+    StatBlock: (+-)#Strength[0], (+-)#Dexterity[1], (+-)#Constitution[2], (+-)#Intelligence[3], (+-)#Wisdom[4], (+-)#Charisma[5]
     Traits: other modifiers or special abilities
     Description: Text box
 
@@ -11,10 +12,21 @@ Magic, rarity, stat block modifier, traits, and description are handled by this 
 ---------------UML---------------
 Item
 ---------------------------------
+-name: String
 -magical: boolean
 -rarity: int
 -statBlockMod: int[]
 -traits: String
 -Description: String
 ---------------------------------
-«constructor»(): void
+«constructor»(name: String): void
++toggleMagical(): void
++setRarity(rareValue: int): void
++setStatBlock(statMods: int[]): void
++setTraits(text: String): void
++setDescription(text: String): void
++isMagical(): boolean
++getRarity(): String
++getStatBlockMod(): int[]
++getTraits(): String
++getDescription(): String
