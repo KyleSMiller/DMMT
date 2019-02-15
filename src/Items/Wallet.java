@@ -51,15 +51,25 @@ public class Wallet {
         // EP and PP are ignored when calculating the coinage
         // This method is only used in auto-generation of wallets
         long tempBalance = this.balance;
-        for (int i = 0; i <= this.formattedBalance.length; i++){
+        int[] autoFormattedBalance = {this.formattedBalance[1], this.formattedBalance[3], this.formattedBalance[4]};
+
+        for (int i = 0; i < autoFormattedBalance.length; i++){
             // split the balance at each digit
-            this.formattedBalance[(this.formattedBalance.length - 1) - i] = (int) tempBalance % 10;
+            autoFormattedBalance[(autoFormattedBalance.length - 1) - i] = (int) tempBalance % 10;
             tempBalance /= 10;
         }
         if (tempBalance != 0){
             // account for GP > 9
-            this.formattedBalance[0] += tempBalance * 10;
+            autoFormattedBalance[0] += tempBalance * 10;
         }
+
+        // add the autoFormattedBalance back into formattedBalance
+        this.formattedBalance[0] = 0;
+        this.formattedBalance[1] = autoFormattedBalance[0];
+        this.formattedBalance[2] = 0;
+        this.formattedBalance[3] = autoFormattedBalance[1];
+        this.formattedBalance[4] = autoFormattedBalance[2];
+
     }
 
 
