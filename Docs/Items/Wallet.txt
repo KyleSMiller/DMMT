@@ -1,6 +1,6 @@
 
 Each instance of an NPC and instance of a Store has access to its own instance of a wallet
-A wallet holds an integer, representing the number of copper pieces inside of the wallet
+A wallet receives and holds an integer, representing the number of copper pieces inside of the wallet
 An array stores the number of non-copper coins the wallet contains
     By default, the wallet attempts to create as many large-value coins as possible
     Platinum and Electrum are ignored by default and must be manually given to the wallet

@@ -1,4 +1,4 @@
-
+﻿
 Superclass for more specific item types
 Name, magic, rarity, stat block modifier, traits, and description are handled by this class
     Name: Plain text name of item
@@ -17,7 +17,9 @@ Item
 -rarity: int
 -statBlockMod: int[]
 -traits: String
--Description: String
+-description: String
+-basePrice: int
+-weight: int
 ---------------------------------
 «constructor»(name: String): void
 +setName(newName): void
