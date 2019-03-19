@@ -16,10 +16,9 @@ Wallet
 -balance: long
 -formattedBalance: int[]
 ---------------------------------
-«constructor»(boolean autoGenerate): void
 +changeBalance(newBalance: int[], setTo: boolean): void
 +setCoinage(pp: int, gp: int, ep: int, sp: int, cp: int): void
--generateBalance(): void
+-generateBalance(wealthModifier): void
 -calcCoinage(): void
 -coinageToRaw(coinage: int[]): int
 -getBalance(): long
