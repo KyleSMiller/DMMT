@@ -41,16 +41,27 @@ public class Wallet {
     /**
      * Alter the balance of the wallet
      * @param newBalance an array in the [pp, gp, ep, sp, cp] format
-     * @param setTo indicates whether to override the existing wallet with the new array, or add the values to it
      */
-    public void changeBalance(int[] newBalance, boolean setTo){
-        long intAmount = coinageToRaw(newBalance);
-        if (setTo) {
-            this.balance = intAmount;
-        }
-        else{
-            this.balance += intAmount;
-        }
+    public void changeBalance(int[] newBalance){
+        this.balance = coinageToRaw(newBalance);
+        this.calcCoinage();
+    }
+
+    /**
+     * Add a specified amount to the total Wallet value
+     * @param formattedAmount an array - in the [pp, gp, ep, sp, cp] format - of the value to add
+     */
+    public void addToBalance(int[] formattedAmount){
+        this.balance += coinageToRaw(formattedAmount);
+        this.calcCoinage();
+    }
+
+    /**
+     * Subtract a specified amount from the total Wallet value
+     * @param formattedAmount an array - in the [pp, gp, ep, sp, cp] format - of the value to subtract
+     */
+    public void removeFromBalance(int[] formattedAmount){
+        this.balance -= coinageToRaw(formattedAmount);
         this.calcCoinage();
     }
 
@@ -75,7 +86,7 @@ public class Wallet {
      * @param wealthModifier modifier used to generate the starting balance of the wallet
      */
     private void generateBalance(float wealthModifier){
-        // TODO: wealth auto-generation logic -- need owner wealth logic before this can be implemented
+        // TODO: wealth auto-generation logic
     }
 
 
@@ -111,6 +122,7 @@ public class Wallet {
     /**
      * Convert the formatted array of coins into an integer
      * @param coinage an array in the [pp, gp, ep, sp, cp] format
+     * @return the non-coinageArray-formatted value of the wallet
      */
     private int coinageToRaw(int[] coinage){
         int rawValue = 0;
