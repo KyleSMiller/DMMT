@@ -16,10 +16,12 @@ Wallet
 -balance: long
 -formattedBalance: int[]
 ---------------------------------
-+changeBalance(newBalance: int[], setTo: boolean): void
-+setCoinage(pp: int, gp: int, ep: int, sp: int, cp: int): void
--generateBalance(wealthModifier): void
--calcCoinage(): void
--coinageToRaw(coinage: int[]): int
--getBalance(): long
--getFormattedBalance(): int[]
++ getBalance(): long
++ getFormattedBalance(): int[]
++ changeBalance(newBalance: int[])
++ addToBalance(formattedAmount: int[])
++ subtractFromBalance(formattedAmount: int[])
++ setCoinage(pp: int, gp: int, ep: int, sp: int, cp: int)
+- generateBalance(wealthModifier)
+- calcCoinage()
+- coinageToRaw(coinage: int[]): int
