@@ -94,9 +94,10 @@ public abstract class Item {
     }
 
     public void setStatBlock(int[] statMods){
-        for (int i = 0; i < statMods.length; i ++){
-            statBlockMod[i] = statMods[i];
-        }
+        System.arraycopy(statMods, 0, this.statBlockMod, 0, statMods.length);
+//        for (int i = 0; i < statMods.length; i ++){
+//            this.statBlockMod[i] = statMods[i];
+//        }
     }
 
     public void setTraits(String text){
