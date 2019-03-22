@@ -18,6 +18,10 @@ public abstract class Item {
         this.name = name;
     }
 
+    public Item(){
+        this.name = "Unnamed Item";
+    }
+
 
     /**
      * getter methods
