@@ -6,13 +6,13 @@ public abstract class Item {
 
     private String name = "Unnamed Item";
     private boolean magical = false;
-    private int rarity = 5;  // common rarity by default
+    private int rarity = 0;  // common rarity by default
     private int[] statBlockMod = {0, 0, 0, 0, 0, 0};
     private String traits = "No traits";
     private String description = "No description";
     private int basePrice = 0;
     private int weight = 0;
-    private String summary = "No description";
+    protected String summary = "No description";
 
     public Item(String name){
         this.name = name;
@@ -36,12 +36,12 @@ public abstract class Item {
 
     public String getRarity(){
         switch (this.rarity){
-            case 0: return "Unique";
-            case 1: return "Legendary";
-            case 2: return "Very rare";
-            case 3: return "Rare";
-            case 4: return "Uncommon";
-            case 5: return "Common";
+            case 0: return "common";
+            case 1: return "uncommon";
+            case 2: return "rare";
+            case 3: return "very rare";
+            case 4: return "legendary";
+            case 5: return "unique";
             default: return "Unknown Rarity";
         }
     }
