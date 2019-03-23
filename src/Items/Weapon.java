@@ -2,9 +2,10 @@ package Items;
 
 public abstract class Weapon extends Item{
 
+    // TODO: damage as "1d6", "2d8", format
     private int damage;
     private String damageType;
-    private int[] range = new int[2];
+    private int[] range;
     private boolean light;
     private boolean heavy;
     private boolean special;
@@ -13,6 +14,24 @@ public abstract class Weapon extends Item{
 
     public Weapon(String name){
         this.setName(name);
+        this.damageType = "Slashing";
+        this.range = new int[2];
+        this.light = false;
+        this.heavy = false;
+        this.special = false;
+        this.twoHanded = false;
+        this.martial = false;
+    }
+
+    public Weapon(){
+        this.setName("Unnamed Weapon");
+        this.damageType = "Slashing";
+        this.range = new int[2];
+        this.light = false;
+        this.heavy = false;
+        this.special = false;
+        this.twoHanded = false;
+        this.martial = false;
     }
 
     /**
