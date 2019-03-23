@@ -4,22 +4,35 @@ import UserInterface.EntityPage.EntityPage;
 
 public abstract class Item implements EntityPage{
 
-    private String name = "Unnamed Item";
-    private boolean magical = false;
-    private int rarity = 0;  // common rarity by default
-    private int[] statBlockMod = {0, 0, 0, 0, 0, 0};
-    private String traits = "No traits";
-    private String description = "No description";
-    private int basePrice = 0;
-    private int weight = 0;
-    protected String summary = "No description";
+    private String name;
+    private boolean magical;
+    private int rarity;
+    private int[] statBlockMod;
+    private String traits;
+    private String description;
+    private int basePrice;
+    private int weight;
 
     public Item(String name){
         this.name = name;
+        this.magical = false;
+        this.rarity = 0; // common rarity by default
+        this.statBlockMod = new int[6];
+        this.traits = "";
+        this.description = "";
+        this.basePrice = 0;
+        this.weight = 0;
     }
 
     public Item(){
         this.name = "Unnamed Item";
+        this.magical = false;
+        this.rarity = 0; // common rarity by default
+        this.statBlockMod = new int[6];
+        this.traits = "";
+        this.description = "";
+        this.basePrice = 0;
+        this.weight = 0;
     }
 
 
@@ -66,9 +79,6 @@ public abstract class Item implements EntityPage{
         return weight;
     }
 
-    public String getSummary(){
-        return summary;
-    }
 
     /**
      * setter methods
