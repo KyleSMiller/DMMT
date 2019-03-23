@@ -1,8 +1,8 @@
 package Items;
+import UserInterface.EntityPage.EntityPage;
 
 
-
-public abstract class Item {
+public abstract class Item implements EntityPage{
 
     private String name = "Unnamed Item";
     private boolean magical = false;
@@ -120,5 +120,4 @@ public abstract class Item {
         this.weight = weight;
     }
 
-    protected abstract void writeSummary();
 }
